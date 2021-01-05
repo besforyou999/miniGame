@@ -8,7 +8,7 @@ void printEnemy();
 
 int timer(){
 	
-	int row = 10, col = 10;
+	int row = 6, col = 10;
 
 	initscr();
 
