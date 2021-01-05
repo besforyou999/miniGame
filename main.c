@@ -10,8 +10,8 @@ int main(void){
 	system("clear");			
 	printPlayer();
 	printEnemy();
-	
-	
+
+
 	
 return 1;
 }
