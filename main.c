@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<unistd.h>
 
-void printPlayer();
+void printPlayer(int y, int x);
 void printEnemy();
 
 int timer(){
@@ -27,24 +27,20 @@ int timer(){
 		switch(input)
 		{
 			case KEY_UP:
-			move(--row, col);
-			printPlayer();
+			printPlayer(--row,col);
 			continue;
 			case KEY_DOWN:
-			move(++row, col);
-			printPlayer();
+			printPlayer(++row,col);
 			continue;
-			case KEY_LEFT:
-			move(row, --col);
-			printPlayer();
-			continue;
-			case KEY_RIGHT:
-			move(row, ++col);
-			printPlayer();
+			case 'q':
+			break;
+			default:
+			printPlayer(row,col);
 			continue;
 		}
 
 		if(input == 'q') break;
+	
 	}
 
 	endwin();
@@ -57,8 +53,16 @@ int main(){
 }
 
 
-void printPlayer(){
-	printw("######");
+void printPlayer(int y, int x){
+
+	move(y,x);
+	printw("|");
+	move(y+1,x);
+	printw("|");
+	move(y+2,x);
+	printw("|");
+	move(y+3,x);
+	printw("|");	
 
 }
 
