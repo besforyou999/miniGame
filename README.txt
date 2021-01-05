@@ -1,2 +1,4 @@
 miniGame project
-Goal : ping pong
+
+Theme : mini shooting game
+
