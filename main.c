@@ -3,8 +3,6 @@
 #include<stdlib.h>
 #include<unistd.h>
 
-//#define gotoxy(x,y) printf("\033[%d;%dH",(y),(x))
-
 void printPlayer();
 void printEnemy();
 
@@ -29,16 +27,20 @@ int timer(){
 		switch(input)
 		{
 			case KEY_UP:
-			mvprintw(--row, col, "A");
+			move(--row, col);
+			printPlayer();
 			continue;
 			case KEY_DOWN:
-			mvprintw(++row, col, "A");
+			move(++row, col);
+			printPlayer();
 			continue;
 			case KEY_LEFT:
-			mvprintw(row, --col, "A");
+			move(row, --col);
+			printPlayer();
 			continue;
 			case KEY_RIGHT:
-			mvprintw(row, ++col, "A");
+			move(row, ++col);
+			printPlayer();
 			continue;
 		}
 
@@ -55,13 +57,12 @@ int main(){
 }
 
 
-/*
 void printPlayer(){
 	printw("######");
 
 }
 
-
+/*
 void printEnemy(){
 
 	move(10,5);
