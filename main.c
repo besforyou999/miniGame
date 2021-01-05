@@ -18,7 +18,10 @@ int timer(){
 
 	keypad(stdscr, TRUE);
 
-	while(1){
+	printPlayer(col, row);
+
+	while(1)
+	{
 	
 		int input = getch();
 
@@ -27,20 +30,23 @@ int timer(){
 		switch(input)
 		{
 			case KEY_UP:
-			printPlayer(--row,col);
-			continue;
+			--col;
+			break;
 			case KEY_DOWN:
-			printPlayer(++row,col);
-			continue;
+			++col;
+			break;
 			case 'q':
 			break;
 			default:
-			printPlayer(row,col);
 			continue;
 		}
 
 		if(input == 'q') break;
 	
+		if(col > 20 ) col = 20;
+		if(col < 2 ) col = 2; 
+	
+		printPlayer(col,row);
 	}
 
 	endwin();
@@ -48,12 +54,16 @@ int timer(){
 	return 1;
 }
 
-int main(){
+int main()
+{
 	return timer();
 }
 
 
 void printPlayer(int y, int x){
+
+
+	if( y < 20){
 
 	move(y,x);
 	printw("|");
@@ -62,7 +72,20 @@ void printPlayer(int y, int x){
 	move(y+2,x);
 	printw("|");
 	move(y+3,x);
-	printw("|");	
+	printw("|");
+	
+	}
+	else{
+	y=20;
+	move(y,x);
+	printw("|");
+	move(y+1,x);
+	printw("|");
+	move(y+2,x);
+	printw("|");
+	move(y+3,x);
+	printw("|");
+	}
 
 }
 
