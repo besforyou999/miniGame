@@ -50,16 +50,15 @@ int control() {
 	drawBall((*ball).y,(*ball).x);
 
 	mvprintw(COL_LIMIT / 2, HOR_LIMIT / 2 - 10 ,"Press any key to start");
-
-	int input = getch();
-
-	clear();
+	
+	int counter=0;
 
 	while(1) {	
 	
-		input = linux_kbhit();
-		
+		int input = getch();
 		clear();
+		move(25,25);
+		printw("%d",counter);
 
 		//player control
 		switch(input) {
@@ -80,17 +79,17 @@ int control() {
 	
 		if(col > COL_LIMIT - 5 ) col = COL_LIMIT - 5;
 		if(col < 3 ) col = 3; 
-
 		
 		// ball movement
 		mod_ball_position(ball);
-
 	
 		drawBox();
 		printPlayer(col,row);
 		printPlayer(e_posy, e_posx);
 		drawBall((*ball).y,(*ball).x);
 
+
+		counter++;
 	}
 
 	endwin();
