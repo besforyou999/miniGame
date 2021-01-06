@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <time.h>
 
-typedef struct tm tm;
-
 struct termios NonBlockingTerminalMode() {
 
 	struct termios org_term;
@@ -31,17 +29,6 @@ char GetNonBlockingInput() {
 		return input_key;
 	else
 		return 0;
-
-
-	/*
-	else {
-		if ( input_key == 27 ) {	// check ESC
-			char dummy;	// if there is additional input, discard it 
-			while( read(STDIN_FILENO, &dummy, 1) == 1 );
-		}
-	}
-	*/
-	//return input_key;
 }
 
 void ResetNonBlockingTerminalMode(struct termios a_org_term) {
@@ -52,28 +39,12 @@ void ResetNonBlockingTerminalMode(struct termios a_org_term) {
 
 int main()
 {
-	/*
-	time_t cur_time, prev_time;
-	tm * p_cur_time;
-	*/
-
 	struct termios org_term = NonBlockingTerminalMode();
-
-	//time(&prev_time);	// get current time to check if time has changed
 
 	printf("Press any key\n");
 
 	while(1) {
-		/*
-		time(&cur_time);	// get current time
-		if(prev_time != cur_time ) {
-
-			prev_time = cur_time;
-			
-			p_cur_time = localtime(&cur_time);
-
-			printf("%02d:%02d:%02d\r", p_cur_time->tm_hour, p_cur_time->tm_min, p_cur_time->tm_sec);
-		*/
+		
 		char a;
 
 		if( a =GetNonBlockingInput()){
