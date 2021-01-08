@@ -40,6 +40,7 @@ int SetBallYSpeed(int dir);
 
 Player arrowkey_ascii_return(int input, Player p);
 BALL moveBall(BALL b);
+int crashCheck(Player p, BALL b);
 
 int control();
 
@@ -49,14 +50,17 @@ int main() {
 
 int control() {
 	
+	clock_t CurTime, PrevTime;
+
 	srand((unsigned int)time(NULL));
 
 	Player player;
-	player.x = 5, player.y = COL_LIMIT / 2 - 2;
+	player.x = 10, player.y = COL_LIMIT / 2 - 2;
 	
 	BALL ball;
 	ball.x = HOR_LIMIT / 2, ball.y = COL_LIMIT / 2, ball.direction = rand() % 4 + 1;
-	ball.x_speed = SetBallXSpeed(ball.direction), ball.y_speed = SetBallYSpeed(ball.direction);
+	ball.x_speed = 2;//SetBallXSpeed(ball.direction);
+	ball.y_speed = SetBallYSpeed(ball.direction);
 
 	//init game
 	drawBox();
@@ -72,39 +76,48 @@ int control() {
 			break;
 	}
 
-	while(1) {
-		
-		int input=NULL;
+	CurTime = clock();
+	PrevTime = clock();
+
+	while (1) {
+
+		int input = NULL;
 
 		if (kbhit()) {
-			input = getch();			
+			input = getch();
 			//player control
 			switch (input) {
-				case 224: {
-					input = getch();
-					Player a = arrowkey_ascii_return(input, player);
-					player.x = a.x;
-					player.y = a.y;
-					break;
-				}
-				case 'q':
-					break;
-				default:
-					break;
+			case 224: {
+				input = getch();
+				Player a = arrowkey_ascii_return(input, player);
+				player.x = a.x;
+				player.y = a.y;
+				break;
+			}
+			case 'q':
+				return 1;
+			default:
+				break;
 			}
 		}
-
-		if(input == 'q' )
-			break;
 		
-		input = NULL;				
+		CurTime = clock();
 
-		ball = moveBall(ball);
-		
-		system("cls");
-		drawPlayer(player.x, player.y);
-		drawBall(ball.x, ball.y);
-		drawBox();				
+		if (CurTime - PrevTime > 100) {
+
+			ball = moveBall(ball);
+
+			system("cls");
+			drawPlayer(player.x, player.y);
+			drawBall(ball.x, ball.y);
+			drawBox();
+
+			PrevTime = clock();
+		}
+
+		if (crashCheck(player, ball)) {
+			ball.x_speed *= -1;
+		}
 	}
 		
 	return 1;
@@ -204,7 +217,8 @@ BALL moveBall(BALL b) {
 		b.y_speed *= -1;	
 	}
 	else if (b.x < 4) {
-		b.x_speed *= -1;	
+		exit(0);
+		//b.x_speed *= -1;	
 	}
 
 	b.x += b.x_speed;
@@ -222,18 +236,31 @@ Player arrowkey_ascii_return(int input, Player p) {
 	switch (input) {
 		
 		case UP: {
-			if (a.y > 2) {
-				a.y -= 1;
+			if (a.y > 3) {
+				a.y -= 2;
 			}
 			break;
 		}
 		case DOWN: {
-			if (a.y < COL_LIMIT - 4) {
-				a.y += 1;
+			if (a.y < COL_LIMIT - 5) {
+				a.y += 2;
 			}
 			break;
 		}
 	}
 
 	return a;
+}
+
+
+int crashCheck(Player p, BALL b) {
+	
+	if ( ((p.x - 2 <= b.x)&&(p.x + 2 >= b.x)) ) {
+		if (b.y >= p.y -1 && b.y <= p.y + 3) {		
+			return 1;
+		}
+	}
+	else {
+		return 0;
+	}
 }
