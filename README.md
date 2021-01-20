@@ -1,6 +1,12 @@
 # miniGame
 
-miniGames that i have made
+miniGames that I have made
 
 
- Some games does not run in Linux OS. If not, try it with Windows OS.
+
+- PingPong, flycatch
+
+Programming language used C
+
+
+Some games does not run in Linux OS. If not, try it with Windows OS.
