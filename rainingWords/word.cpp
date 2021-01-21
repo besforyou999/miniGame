@@ -1,34 +1,37 @@
 #include "word.h"
 
-string word::getString()
+
+
+std::string word::getString()
 {
-	return this->s;
+	return s;
 }
 
-void word::setString(string s)
+void word::setString(std::string s)
 {
-	this->s = s;
+	s = s;
 }
+
 
 
 int word::getPosX()
 {
-	return this->x;
+	return x;
 }
 
 int word::getPosY()
 {
-	return this->y;
+	return y;
 }
 
-void setPosX(int x)
+void word::setPosX(int x)
 {
-	this->x = x;
+	 x = x;
 }
 
-void setPosY(int y)
+void word::setPosY(int y)
 {
-	this->y = y;
+	 y = y;
 }
 
 

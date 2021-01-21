@@ -3,17 +3,16 @@
 
 #include <string>
 
-
 class word
 {
 	public:
 		word(){
-			this->s = NULL;
+			this->s = nullptr;
 			this->x = 0;
 			this->y = 0;
 		};
 		word(int x, int y){
-			this->s = NULL;
+			this->s = nullptr;
 			this->x = x;
 			this->y = y;
 		};
@@ -28,8 +27,8 @@ class word
 
 	private:
 		std::string s;
-		int x,y;
+		int x;
+		int y;
 };
-
 
 #endif
