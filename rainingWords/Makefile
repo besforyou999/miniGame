@@ -5,7 +5,7 @@ main.o : main.cpp user.h word.h
 user.o : user.cpp user.h
 	g++ -c user.cpp
 word.o : word.cpp word.h
-	g++ -std=c++11 word.cpp
+	g++ -c -std=c++11 word.cpp
 clean :
 	rm -f *.o
 

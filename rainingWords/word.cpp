@@ -1,7 +1,5 @@
 #include "word.h"
 
-
-
 std::string word::getString()
 {
 	return s;
@@ -11,7 +9,6 @@ void word::setString(std::string s)
 {
 	s = s;
 }
-
 
 
 int word::getPosX()
