@@ -3,26 +3,20 @@
 #include "word.h"
 #include "user.h"
 
+
 int main(){
 
-	std::string s2;
-	user u;
-	word w(3,10);
-	
-	int life = u.getLife();
+	string s = "Hello world!";
 
-	std::cout << "User's life : " << life << std::endl;
+	word w(3,3,s);
 
-	int word_x = w.getPosX();
-	int word_y = w.getPosY();
+	std::cout << w.getName()  << std::endl;
 
-	std::cout << "Word x : " << word_x << std::endl;
-	std::cout << "Word y : " << word_y << std::endl;
+	string s2 ="What up!";
 
-	s2.push_back('a');
+	w.setName(s2);
 
-
-	std::cout << "Testing string : " << w << std::endl;
+	std::cout << w.getName()  << std::endl;
 
 	return 0;
 }

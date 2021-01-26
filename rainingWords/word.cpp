@@ -1,15 +1,9 @@
 #include "word.h"
 
-std::string word::getString()
+string word::getName()
 {
-	return s;
+	return name;
 }
-
-void word::setString(std::string s)
-{
-	s = s;
-}
-
 
 int word::getPosX()
 {
@@ -21,14 +15,22 @@ int word::getPosY()
 	return y;
 }
 
+void word::setName(string newName)
+{
+	name = newName;
+	return ;
+}
+
 void word::setPosX(int x)
 {
-	 x = x;
+	this->x = x;
 }
 
 void word::setPosY(int y)
 {
-	 y = y;
+	 this->y = y;
 }
+
+
 
 

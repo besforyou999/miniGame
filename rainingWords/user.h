@@ -8,8 +8,15 @@ class user
 		void setLife(int life)
 		{
 			this->life = life;
-		}		
+		}
+
+		void decreaseLife()
+		{
+			this->life -= 1;
+		}
+
 		int getLife();
+		
 
 	private:
 		int life;
