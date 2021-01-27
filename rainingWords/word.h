@@ -30,7 +30,7 @@ class word
 		void setPosX(int x);
 		void setPosY(int y);
 		void setName(string newName);
-
+		
 	private:
 		string name;
 		int x;

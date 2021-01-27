@@ -2,21 +2,22 @@
 #include <string>
 #include "word.h"
 #include "user.h"
+#include "word_data.h"
 
 
 int main(){
 
-	string s = "Hello world!";
+	word_data d;
+	
+	string ans = d.getWordAtIndex(1);
 
-	word w(3,3,s);
+	std::cout << ans << std::endl;
 
-	std::cout << w.getName()  << std::endl;
+	d.setWordAtIndex(4,ans);
 
-	string s2 ="What up!";
+	ans = d.getWordAtIndex(4);
 
-	w.setName(s2);
-
-	std::cout << w.getName()  << std::endl;
+	std::cout << ans << std::endl;
 
 	return 0;
 }
