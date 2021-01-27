@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <time.h>
+#include <stdlib.h>
 #include "word.h"
 #include "user.h"
 #include "word_data.h"
@@ -7,17 +9,45 @@
 
 int main(){
 
-	word_data d;
+	word_data wd;
+	word w[WORDS_SIZE];
+	user user1;
+
+	clock_t CurTime , PrevTime;
+
+	srand((unsigned int)time(NULL));
+
+	PrevTime = CurTime = clock();
+
+	while(1) {
+
+		 
+
+		if( (CurTime - PrevTime)/CLOCKS_PER_SEC >= 1) {
+			
+			PrevTime = clock();
+		
+
+			/*
+			int index = rand() % WORDS_SIZE;
 	
-	string ans = d.getWordAtIndex(1);
+			if(wd.getOccupationAtIndex(index)==0){
+				string temp = wd.getWordAtIndex(index);
+				wd.setOccupationAtIndex(index,1);
 
-	std::cout << ans << std::endl;
+			}
+			else if(wd.getOccupationAtIndex(index) == 1 ){
+					
+				std::cout << "Occupied!\n";
+			
+			}
+			*/
+			
+		}
 
-	d.setWordAtIndex(4,ans);
+		CurTime = clock();		
+	}
 
-	ans = d.getWordAtIndex(4);
-
-	std::cout << ans << std::endl;
 
 	return 0;
 }

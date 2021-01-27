@@ -6,6 +6,13 @@ string word_data::getWordAtIndex(int i) {
 
 }
 
+int word_data::getOccupationAtIndex(int i) {
+
+	return occupation[i];
+}
+
+
+
 void word_data::setWordAtIndex(int i, string s) {
 
     if(i > WORDS_SIZE - 1){
@@ -16,3 +23,15 @@ void word_data::setWordAtIndex(int i, string s) {
 
 	return ;
 }
+
+void word_data::setOccupationAtIndex(int index, int i) {
+
+	if(  i != 1 && i != 0 )
+		return ;
+
+
+	occupation[index] = i;
+
+	return ;
+}
+

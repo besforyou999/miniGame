@@ -70,8 +70,9 @@ class word_data
 
 
 		string getWordAtIndex(int i);
-		
+		int getOccupationAtIndex(int i);	
 
+		void setOccupationAtIndex(int index, int i);
 		void setWordAtIndex(int i , string s);
 
 
