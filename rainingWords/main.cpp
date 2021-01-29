@@ -10,8 +10,9 @@
 int main(){
 
 	word_data wd;
-	word w[WORDS_SIZE];
-	user user1;
+ 	user user1;
+	vector<word> v1;
+	
 
 	clock_t CurTime , PrevTime;
 
@@ -26,7 +27,7 @@ int main(){
 		if( (CurTime - PrevTime)/CLOCKS_PER_SEC >= 1) {
 			
 			PrevTime = clock();
-		
+			std::cout << "It works" << std::endl;		
 
 			/*
 			int index = rand() % WORDS_SIZE;
