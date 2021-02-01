@@ -10,12 +10,12 @@ Language used C
 
 
 
-- rainingWords(incomplete)
+- rainingWords(complete 21.02.01)
 
 
 Language used C++
 
-
+opening sln file with visual studio will be much easier to play the game
 
 
 
