@@ -22,4 +22,7 @@ opening sln file with visual studio will be much easier to play the game
 
 
 
+
+
+
 Some games does not run in Linux OS. If not, try it with Windows OS.
