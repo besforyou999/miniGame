@@ -1,9 +1,7 @@
-#include "user.h"
 
+#include "user.h"
 
 int user::getLife()
 {
-	return life;
+    return life;
 }
-
-

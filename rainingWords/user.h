@@ -1,25 +1,22 @@
-#pragma once
 
-class user
-{
-	public:
-		user() : life(3)	{}
+#ifndef TESTPROJECT1_USER_H
+#define TESTPROJECT1_USER_H
 
-		void setLife(int life)
-		{
-			this->life = life;
-		}
+class user {
+public:
 
-		void decreaseLife()
-		{
-			this->life -= 1;
-		}
+    user() : life(3) {}
 
-		int getLife();
-		
+    void setLife(int life) {
+        this->life = life;
+    }
+    void decreaseLife() {
+        this->life -= 1;
+    }
+    int getLife();
 
-	private:
-		int life;
+private:
+    int life;
 };
 
-
+#endif //TESTPROJECT1_USER_H
