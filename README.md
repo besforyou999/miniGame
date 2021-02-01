@@ -13,9 +13,8 @@ Language used C
 - rainingWords(complete 21.02.01)
 
 
-Language used C++
-
-opening sln file with visual studio will be much easier to play the game
+  Language used C++
+  opening sln file with visual studio will be much easier to play the game
 
 
 
