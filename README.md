@@ -6,7 +6,7 @@ miniGames that I have made(update 21.1.22)
 
 - PingPong, flycatch
 
-Language used C
+  Language used C
 
 
 
